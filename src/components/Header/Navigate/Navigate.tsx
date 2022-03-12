@@ -2,26 +2,19 @@ import React, { memo } from "react"
 import styles from './index.module.css'
 import {RiMenu3Fill} from 'react-icons/ri'
 import { Span } from "../../../index.styled"
+import { dataNav } from "./dataNav"
 
 const Navigate = () => {
     return <div className={styles.navigate}>
         <nav className={styles.WrapperNav}>
-        <Accardion title="ОБЩИЕ СВЕДЕНИЯ">
-            <a href="#">qwe</a>
-        </Accardion>
-        <a href="#">НОВОСТИ</a>
-        <a href="#">ОБЪЯВЛЕНИЧ</a>
-        <Accardion title="АБИТУРИЕНТУ">
-            <a href="#">qwe</a>
-        </Accardion>
-        <Accardion title="ИНСТИТУТЫ">
-            <a href="#">qwe</a>
-        </Accardion>
-        <Accardion title="НАУКА">
-            <a href="#">qwe</a>
-        </Accardion>
-        <a href="#">ВЫПУСКНИКУ</a>
-        <a href="#">КОНТАКТЫ</a>
+            
+        {dataNav.map((item, index) => item.nestedArray 
+        ? <AccordionHover key={index} title={item.title}>
+                {item.nestedArray.map((item, index) => <a key={index} href="/#">{item.title}</a>)}
+        </AccordionHover>
+        : <a key={index} href="/#">{item.title}</a>
+        )}
+
         </nav>
         <div className={styles.burgerIcon}>
             <Span fs="19px" fw={500}>
@@ -39,7 +32,7 @@ type PropsType = {
     title: string
 }
 
-const Accardion = (props: PropsType) => {
+export const AccordionHover = (props: PropsType) => {
     return <div className={styles.dropdown}>
         <button className={styles.dropbtn}>{props.title}</button>
         <div className={styles.dropdownContent}>

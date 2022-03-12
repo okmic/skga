@@ -1,0 +1,32 @@
+.accordion {
+    color: rgb(24, 142, 244);
+}
+.accordionHeading .container {
+    display: flex;
+    cursor: pointer;
+    padding: 3px 0;
+}
+.accordionHeading p {
+    font-size: 13px;
+}
+.accordionHeading span {
+    cursor: pointer;
+    margin-top: -15px;
+}
+
+.accordionContent{
+    height: 0;
+    opacity: 0; 
+    display: flex;
+    overflow: hidden;
+    transition: all 300ms ease-in-out;
+}
+.accordionContent.show {
+    height: 180px;
+    opacity: 1; 
+    overflow-y: auto;
+}
+.accordionContent p {
+    font-size: 15px;
+    line-height: 1.6;
+}

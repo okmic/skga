@@ -12,3 +12,10 @@ export const Span = styled.span<SpanType>`
     margin: ${props => props.m ? props.m : 0}px;
 
 `
+export const Content = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 1em;
+`
